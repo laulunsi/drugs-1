@@ -4,6 +4,7 @@
 		Schema = mongoose.Schema,
 		ObjectId = Schema.ObjectId;
 	var drugSchema = new Schema({
+		webId:Number,
 		type:String,
 		pzwh: String,
 		ypzwh: String,
@@ -14,18 +15,18 @@
 		spm: String,
 		scdw: String,
 		scdz: String,
-		gg: String,
+		gg: [String],
 		jx: String,
 		cplb: String,
 		pzrq: [Date]
 	});
 	var Drug = mongoose.model('drug', drugSchema, 'drug');
 	var dwRe = new RegExp('linkValue=(.*?)\'', 'ig');
-	exports.addDrug = function(arr) {
+	exports.addDrug = function(arr,k) {
 		if(!arr || arr.length == 0) {
 			return;
 		}
-		var i, obj = {type:'zh'};
+		var i, obj = {type:'zh',webId:k};
 		for(i = 0; i < arr.length; i++) {
 			var k = arr[i][0];
 			var v = arr[i][1];
@@ -62,7 +63,7 @@
 		}
 		new Drug(obj).save(function(err) {
 			if(err) {
-				console.log(err);
+				console.log(k + ':' +　err);
 			}
 		});
 	}
