@@ -1,7 +1,7 @@
 (function() {
 	var mongoose = require('mongoose'),
-		// conn = mongoose.connect('192.168.8.20', 'drugs'),
-		conn = mongoose.connect('10.6.6.215', 'drugs'),
+		conn = mongoose.connect('192.168.8.20', 'drugs_20131112'),
+		// conn = mongoose.connect('10.6.6.215', 'drugs'),
 		Schema = mongoose.Schema,
 		ObjectId = Schema.ObjectId;
 	var drugSchema = new Schema({

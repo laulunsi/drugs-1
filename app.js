@@ -60,7 +60,7 @@ function load() {
 		if(!error && response.statusCode == 200) {
 			parser.parseComplete(body);
 		}
-		if(k < 191000) {
+		if(k < 166961) {
 			k = k + 1;
 			load();
 		}
